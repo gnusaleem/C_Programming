@@ -7,7 +7,7 @@ int linear_search(int *arr, int size, int val) {
 	if (size == 0)
 		return -1;
 
-	for (i = 0; i < size; i++) {
+	for (i = 0; i <= size; i++) {
 		if (arr[i] == val) {
 			pos = i;
 			return pos;
