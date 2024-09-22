@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void swap(int *a, int *b) {
 	int temp;
@@ -9,26 +10,13 @@ void swap(int *a, int *b) {
 
 }
 
-/*void bubble_sort(int *nums, int size) {
-
-	int i, j;
-
-	for (i = 0; i < size; i++) {
-		for (j = i + 1; j < size; j++) {
-			if (nums[i] < nums[j])
-				swap(&nums[i], &nums[j]);
-		}
-	}
-}
-
-*/
 void bubble_sort(int *nums, int size) {
 
 	int i, j;
 
 	for (i = 0; i < size; i++) {
 		for (j = i + 1; j < size; j++) {
-			if (nums[i] < nums[j])
+			if (nums[i] > nums[j])
 				swap(&nums[i], &nums[j]);
 		}
 	}
@@ -43,12 +31,31 @@ void print_array(int *nums, int size) {
 
 int main(int argc, char *argv[])
 {
-	int nums[] = {10, 3, 4, 5, 33, 87, 9, 22, 17};
-	int size_array = sizeof(nums)/sizeof(nums[0]);
+	int i;
+	int *ptr, size;
 
-	bubble_sort(nums, size_array);
-	print_array(nums, size_array);
+	printf("Enter the Array size\n");
+	scanf("%d", &size);
+
+	ptr = (int *)malloc(sizeof(int) * size);
+
+	if (ptr == NULL) {
+		printf("Memory not allocated\n");
+		exit(0);
+	} else {
+		printf("Enter the %d Number to be stored in array\n", size);
+		for (i = 0; i <= size; i++) {
+			scanf("%d", &ptr[i]);
+		}
+
+		for (i = 0; i <= size; i++) {
+			printf("pos = %d, value = %d, address is %p\n", i, ptr[i], (int *)&ptr[i]);
+		}
+	}
+
+	bubble_sort(ptr, size);
+	print_array(ptr, size);
+	free(ptr);
 
 	return 0;
 }
-	
