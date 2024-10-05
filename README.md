@@ -1,0 +1,6 @@
+## Algorithms ##
+
+This branch is using for problem solving 
+bitmanupulations programs are available in bitops directory.
+leetcode problems available in leetcode directory
+# Algorithms
